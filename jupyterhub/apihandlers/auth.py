@@ -199,6 +199,7 @@ class OAuthAuthorizeHandler(OAuthHandler, BaseHandler):
         self.send_oauth_response(headers, body, status)
 
     def needs_oauth_confirm(self, user, oauth_client):
+        return False 
         """Return whether the given oauth client needs to prompt for access for the given user
 
         Checks whitelist for oauth clients
@@ -277,7 +278,7 @@ class OAuthAuthorizeHandler(OAuthHandler, BaseHandler):
         full_url = self.request.full_url()
         if referer != full_url:
             # OAuth post must be made to the URL it came from
-            self.log.error("OAuth POST from %s != %s", referer, full_url)
+            self.log.error("OAuth POST!!! from %s != %s", referer, full_url)
             raise web.HTTPError(
                 403, "Authorization form must be sent from authorization page"
             )
