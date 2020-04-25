@@ -199,6 +199,7 @@ class OAuthAuthorizeHandler(OAuthHandler, BaseHandler):
         self.send_oauth_response(headers, body, status)
 
     def needs_oauth_confirm(self, user, oauth_client):
+        return False 
         """Return whether the given oauth client needs to prompt for access for the given user
 
         Checks list for oauth clients that don't need confirmation
